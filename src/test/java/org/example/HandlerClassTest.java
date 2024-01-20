@@ -9,6 +9,7 @@ class HandlerClassTest {
         RequestClass request = new RequestClass();
         TestContext context = new TestContext();
         request.nome = "Vinicius";
-        String response = handler.handleRequest(request, conassertEquals("{ \"numberOfCharacters\" : 8}", response);
+        String response = handler.handleRequest(request, context);
+                assertEquals("{ \"numberOfCharacters\" : 8}", response);
     }
 }

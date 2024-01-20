@@ -1,0 +1,20 @@
+version: '1.0'
+# to run lambda uses docker-compose run --service-ports lambda
+services:
+  lambda:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9001:8080"
+    #entrypoint: "org.example.HandlerClass::handleRequest"
+
+    environment:
+      # Declare which aws services will be used in localstack
+      # These variables are needed for localstack
+      - AWS_DEFAULT_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=testUser
+      - AWS_SECRET_ACCESS_KEY=testAccessKey
+      - LAMBDA_EXECUTOR=local
+      - ENVIRONMENT=docker
+      - AWS_REGION=us-east-1
